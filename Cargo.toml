@@ -1,0 +1,43 @@
+[package]
+name = "chessnut-move"
+description = "Typed, transport-independent SDK for Chessnut Move boards."
+repository = "https://github.com/daymxn/chessnut-move-rs"
+readme = "README.md"
+keywords = ["chess", "chessnut", "move", "sdk", "api"]
+categories = ["no-std", "asynchronous", "api-bindings", "embedded", "hardware-support"]
+version = "1.0.0"
+edition = "2024"
+license = "Apache-2.0"
+include = ["/src", "LICENSE"]
+
+[dependencies]
+btleplug = { version = "0.12", optional = true }
+futures-util = { version = "0.3", optional = true }
+thiserror = { version = "2", default-features = false }
+tokio = { version = "1", optional = true, features = ["macros", "rt", "sync", "time"] }
+tokio-stream = { version = "0.1", optional = true, features = ["sync"] }
+tracing = { version = "0.1", default-features = false, optional = true }
+uuid = { version = "1", optional = true }
+
+[dev-dependencies]
+futures-executor = "0.3"
+tokio = { version = "1", features = ["macros", "rt", "signal", "sync", "test-util", "time"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[features]
+default = ["std", "async"]
+std = ["thiserror/std", "tracing?/std"]
+alloc = []
+
+async = []
+blocking = []
+btleplug = ["std", "async", "dep:btleplug", "dep:futures-util", "dep:uuid"]
+tokio = ["std", "alloc", "async", "dep:tokio", "dep:tokio-stream"]
+tracing = ["alloc", "dep:tracing"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[[example]]
+name = "basic"
+required-features = ["btleplug", "tokio", "tracing"]

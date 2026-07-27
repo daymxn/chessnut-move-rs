@@ -1,0 +1,51 @@
+name: Bug Report
+description: File a bug report if something is not working as expected.
+labels: [ ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before getting started, make sure there isn't already an issue opened for your bug.
+  - type: textarea
+    attributes:
+      label: Description
+      description: |
+        Describe the issue. Explain what you _expected_ to happen and what
+        _actually_ happened.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproducing the issue
+      description: |
+        Please provide either **steps to reproduce** or a [**minimal reproducible example**](https://stackoverflow.com/help/minimal-reproducible-example).
+        Providing a minimal reproducible example will help us triage your issue
+        faster.
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: SDK Version
+      description: What version of the SDK has this issue?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Platform
+      description: What platform are you running the SDK under?
+      placeholder: "Windows 11 1903"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Relevant Log Output
+      description: |
+        Please copy and paste any relevant log output.
+      placeholder: |
+        Paste your logs here. Please redact any personally identifiable
+        information. This will be automatically formatted into code, so no
+        need for backticks.
+      render: shell
+    validations:
+      required: false

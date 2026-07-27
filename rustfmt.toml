@@ -1,0 +1,5 @@
+tab_spaces = 2
+imports_granularity = "Module"
+group_imports = "StdExternalCrate"
+newline_style = "Unix"
+
