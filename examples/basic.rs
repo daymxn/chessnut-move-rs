@@ -65,16 +65,17 @@ async fn use_board(board: &BoardHandle) -> Result<(), AnyError> {
   let battery = board.battery_status().await?;
   println!("Board battery: {}%", battery.percentage);
 
-  let pieces = board.piece_status().await?;
-  let unavailable = pieces
-    .pieces
-    .iter()
-    .filter(|piece| piece.battery_percentage.is_none())
-    .count();
-  println!(
-    "Tracked {} pieces ({unavailable} without a battery reading).",
-    pieces.pieces.len()
-  );
+  let piece_status = board.piece_status().await?;
+  for piece in piece_status.pieces.iter() {
+    match piece.battery_percentage {
+      Some(battery_percentage) => {
+        println!("{:?} ({:?}%)", piece.piece, battery_percentage);
+      }
+      None => {
+        println!("{:?} (unavailable)", piece.piece);
+      }
+    }
+  }
 
   println!("Move a piece to produce a position update...");
   let position = timeout(Duration::from_secs(30), async {
@@ -85,6 +86,7 @@ async fn use_board(board: &BoardHandle) -> Result<(), AnyError> {
     }
   })
   .await??;
+
   println!("Position update: {position:?}");
   Ok(())
 }
