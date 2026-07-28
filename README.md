@@ -1,7 +1,7 @@
 # chessnut-move-rs
 
 [![GitHub Repo](https://img.shields.io/badge/github-daymxn/chessnut--move--rs-8da0cb?style=for-the-badge&labelColor=555555&logo=github)](https://github.com/daymxn/chessnut-move-rs)
-[![Crates.io Package](https://img.shields.io/crates/v/chessnut-move.svg?style=for-the-badge&color=fc8d62&logo=rust)](https://crates.io/crates/chessnut-move)
+[![Crates.io Package](https://img.shields.io/badge/crates.io-chessnut--move-fc8d62?style=for-the-badge&logo=rust)](https://crates.io/crates/chessnut-move)
 [![Docs](https://img.shields.io/docsrs/chessnut-move?style=for-the-badge&logo=docs.rs&color=66c2a5)](https://docs.rs/chessnut-move)
 
 A typed, transport-independent Rust SDK for
