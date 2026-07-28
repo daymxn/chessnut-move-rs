@@ -8,7 +8,7 @@ categories = ["no-std", "asynchronous", "api-bindings", "embedded", "hardware-su
 version = "1.0.1"
 edition = "2024"
 license = "Apache-2.0"
-include = ["/examples", "/src", "LICENSE"]
+include = ["/src", "LICENSE"]
 
 [dependencies]
 btleplug = { version = "0.12", optional = true }
