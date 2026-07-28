@@ -8,7 +8,7 @@ categories = ["no-std", "asynchronous", "api-bindings", "embedded", "hardware-su
 version = "1.0.1"
 edition = "2024"
 license = "Apache-2.0"
-include = ["/src", "LICENSE"]
+include = ["/examples", "/src", "LICENSE"]
 
 [dependencies]
 btleplug = { version = "0.12", optional = true }
@@ -41,3 +41,13 @@ all-features = true
 [[example]]
 name = "basic"
 required-features = ["btleplug", "tokio", "tracing"]
+
+[[example]]
+name = "blocking_no_std"
+crate-type = ["lib"]
+required-features = ["blocking"]
+
+[[example]]
+name = "async_without_tokio"
+crate-type = ["lib"]
+required-features = ["async"]
